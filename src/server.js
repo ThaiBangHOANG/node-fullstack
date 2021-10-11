@@ -2,6 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import viewEngine from "./config/viewEngine";
 import initWebRoute from "./route/web";
+import connectDB from "./config/connectDB";
+
 require("dotenv").config();
 
 let app = express();
@@ -13,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 viewEngine(app);
 initWebRoute(app);
+connectDB(app);
 
 let port = process.env.PORT || 8080; // use or here to make sure the app not die
 
