@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 viewEngine(app);
 initWebRoute(app);
-connectDB(app);
+connectDB();
 
 let port = process.env.PORT || 8080; // use or here to make sure the app not die
 
