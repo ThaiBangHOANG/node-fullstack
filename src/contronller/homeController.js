@@ -29,7 +29,18 @@ let postCRUD = async (req, res) => {
   console.log(message);
 
   // console.log(req.body);
-  return res.send("glfkjfkljgdf");
+  return res.send("Create an user with success!");
+};
+
+let displayGetCRUD = async (req, res) => {
+  let data = await CRUDService.getAllUser();
+  // console.log("------------------------------");
+  // console.log(data);
+  // console.log("------------------------------");
+
+  return res.render("displayCRUD.ejs", {
+    dataTable: data,
+  });
 };
 
 module.exports = {
@@ -37,4 +48,5 @@ module.exports = {
   getAnotherFile: getAnotherFile,
   getCRUD: getCRUD,
   postCRUD: postCRUD,
+  displayGetCRUD: displayGetCRUD,
 };
